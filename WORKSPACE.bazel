@@ -1,0 +1,40 @@
+load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")
+
+skylib_version = "1.1.1"
+http_archive(
+    name = "bazel_skylib",
+    urls = [
+        "https://github.com/bazelbuild/bazel-skylib/releases/download/1.1.1/bazel-skylib-1.1.1.tar.gz",
+        "https://mirror.bazel.build/github.com/bazelbuild/bazel-skylib/releases/download/1.1.1/bazel-skylib-1.1.1.tar.gz",
+    ],
+    sha256 = "c6966ec828da198c5d9adbaa94c05e3a1c7f21bd012a0b29ba8ddbccb2c93b0d",
+)
+load("@bazel_skylib//:workspace.bzl", "bazel_skylib_workspace")
+bazel_skylib_workspace()
+
+rules_scala_version = "1d98a8013853b73c825c727be9467e5ea15cc262"
+http_archive(
+    name = "io_bazel_rules_scala",
+    sha256 = "50963bf5d38dab524bffe941bf5fd68c06de6e6ee75e6b12a8610de7ca409880",
+    strip_prefix = "rules_scala-%s" % rules_scala_version,
+    type = "zip",
+    url = "https://github.com/bazelbuild/rules_scala/archive/%s.zip" % rules_scala_version,
+)
+
+load("@io_bazel_rules_scala//:scala_config.bzl", "scala_config")
+scala_config(scala_version = "2.13.7")
+
+load("@io_bazel_rules_scala//scala:scala.bzl", "scala_repositories")
+scala_repositories()
+
+load("@rules_proto//proto:repositories.bzl", "rules_proto_dependencies", "rules_proto_toolchains")
+rules_proto_dependencies()
+rules_proto_toolchains()
+
+load("@io_bazel_rules_scala//scala:toolchains.bzl", "scala_register_toolchains")
+scala_register_toolchains()
+
+# optional: setup ScalaTest toolchain and dependencies
+load("@io_bazel_rules_scala//testing:scalatest.bzl", "scalatest_repositories", "scalatest_toolchain")
+scalatest_repositories()
+scalatest_toolchain()

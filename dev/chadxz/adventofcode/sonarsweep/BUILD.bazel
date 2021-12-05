@@ -1,0 +1,8 @@
+load("@io_bazel_rules_scala//scala:scala.bzl", "scala_library", "scala_binary", "scala_test")
+
+scala_binary(
+  name = "sonarsweep",
+  main_class = "dev.chadxz.adventofcode.sonarsweep.App",
+  srcs = ["exercise.scala"],
+  runtime_deps = ["input.txt"]
+)
