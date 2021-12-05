@@ -26,3 +26,16 @@ use the opportunity to learn more about Bazel and Scala.
 
 * Install bazelisk. `brew install bazelisk` on mac.
 * `bazel build //...` in the top-level directory of the project
+
+### REPL
+
+To open a repl, run:
+
+```
+❯ bazel build //:repl
+❯ bazel-bin/repl
+Welcome to Scala 2.13.6 (OpenJDK 64-Bit Server VM, Java 17.0.1).
+Type in expressions for evaluation. Or try :help.
+
+scala> 
+```
