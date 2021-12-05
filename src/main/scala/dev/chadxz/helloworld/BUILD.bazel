@@ -2,6 +2,6 @@ load("@io_bazel_rules_scala//scala:scala.bzl", "scala_binary")
 
 scala_binary(
     name = "helloworld",
-    main_class = "src.main.scala.chadxz",
+    main_class = "dev.chadxz.helloworld.Hello",
     srcs = ["Hello.scala"]
 )

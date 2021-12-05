@@ -27,9 +27,13 @@ use the opportunity to learn more about Bazel and Scala.
 * Install bazelisk. `brew install bazelisk` on mac.
 * `bazel build //...` in the top-level directory of the project
 
-### REPL
+### Running
 
-To open a repl, run:
+```
+bazel run //src/main/scala/dev/chadxz/adventofcode/sonarsweep
+```
+
+### Using a REPL
 
 ```
 ❯ bazel build //:repl
