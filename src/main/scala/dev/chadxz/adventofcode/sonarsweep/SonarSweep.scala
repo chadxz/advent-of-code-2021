@@ -2,20 +2,25 @@ package dev.chadxz.adventofcode.sonarsweep
 
 import scala.io.Source
 
-object SonarSweep extends App {
-  var lastLine = ""
-  var increases = 0
+object SonarSweep {
+  def main(args: Array[String]): Unit = {
+    val part1Result = part1()
 
-  Source
-    .fromInputStream(getClass.getResourceAsStream("/sonarsweep/input.txt"))
-    .getLines()
-    .foreach(line => {
-      if (lastLine.nonEmpty && lastLine.toInt < line.toInt) {
-        increases += 1
+    println(s"Part 1 Answer: ${part1Result}")
+  }
+
+  def part1(): Int = {
+    Source
+      .fromInputStream(getClass.getResourceAsStream("input.txt"))
+      .getLines()
+      .map(_.toInt)
+      .sliding(2)
+      .count {
+        case Seq(a, b) => b > a
       }
+  }
 
-      lastLine = line
-    })
-
-  println(s"Part 1 Answer: ${increases} in depth")
+  def part2(): Int = {
+    1
+  }
 }
