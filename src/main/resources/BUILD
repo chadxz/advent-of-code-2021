@@ -9,3 +9,9 @@ filegroup(
     srcs = glob(["dev/chadxz/adventofcode/dive/**/*"]),
     visibility = ["//:__subpackages__"],
 )
+
+filegroup(
+    name = "binarydiagnostic",
+    srcs = glob(["dev/chadxz/adventofcode/binarydiagnostic/**/*"]),
+    visibility = ["//:__subpackages__"],
+)

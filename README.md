@@ -43,3 +43,8 @@ Type in expressions for evaluation. Or try :help.
 
 scala> 
 ```
+
+### Checking my answers
+
+As an opportunity to learn from someone that knows more than me about Scala,
+I'm checking my answers against https://github.com/maneatingape/advent-of-code
